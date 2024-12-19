@@ -1,0 +1,32 @@
+#auth-container {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    z-index: 1000;
+}
+
+#login-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+}
+
+#user-display {
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+#high-scores {
+    position: fixed;
+    right: 20px;
+    top: 60px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-height: 80vh;
+    overflow-y: auto;
+}

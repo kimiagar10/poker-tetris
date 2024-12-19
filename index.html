@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Poker Tetris</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        #game-container {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        canvas {
+            border: 2px solid #333;
+            background-color: white;
+        }
+        #gameCanvas {
+            width: 300px;
+            height: 500px;
+        }
+        #next-card {
+            width: 60px;
+            height: 80px;
+        }
+        #game-info {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        #score {
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        #instructions {
+            margin-top: 20px;
+        }
+		
+		#next-card {
+        width: 60px;
+        height: 260px; /* Increased height for 3 cards */
+        background-color: white;
+		}
+		#new-game-button {
+        display: none; /* Initially hidden */
+        position: absolute;
+        left: 50%;
+        top: 60%;
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        font-size: 18px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    #new-game-button:hover {
+        background-color: #45a049;
+    }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <canvas id="gameCanvas"></canvas>
+        <div id="game-info">
+            <h2>Next Card:</h2>
+            <canvas id="next-card"></canvas>
+            <div id="score">Score: 0</div>
+            <div id="instructions">
+                <h3>Controls:</h3>
+                <p>← → : Move card left/right</p>
+                <p>↓ : Fast drop</p>
+                <p>Space : Instant drop</p>
+            </div>
+        </div>
+    </div>
+	<button id="new-game-button">New Game</button>
+
+    <script>
+        // Debug script to verify everything is loading
+        window.addEventListener('load', () => {
+            console.log('Page loaded');
+            
+            const gameCanvas = document.getElementById('gameCanvas');
+            const nextCardCanvas = document.getElementById('next-card');
+            
+            if (gameCanvas) {
+                const ctx = gameCanvas.getContext('2d');
+                // Draw something to verify canvas is working
+                ctx.fillStyle = 'blue';
+                ctx.fillRect(10, 10, 50, 50);
+                console.log('Main canvas initialized');
+            } else {
+                console.error('Main canvas not found');
+            }
+            
+            if (nextCardCanvas) {
+                const nextCtx = nextCardCanvas.getContext('2d');
+                // Draw something to verify canvas is working
+                nextCtx.fillStyle = 'red';
+                nextCtx.fillRect(5, 5, 50, 70);
+                console.log('Next card canvas initialized');
+            } else {
+                console.error('Next card canvas not found');
+            }
+        });
+    </script>
+    <script src="game.js"></script>
+</body>
+</html>
